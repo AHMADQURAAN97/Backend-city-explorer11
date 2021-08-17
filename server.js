@@ -1,28 +1,49 @@
 'use strict';
 
 const express = require ('express');
-const weatherData = require('./data/weather.json')
+require('dotenv').config(); 
+const cors = require ('cors');
 const server = express();
-const PORT = 3001;   
+const PORT=process.env.PORT; 
+server.use(cors());
+// const axios = require("axios");
+const weatherData = require('./data/weather.json')
 
-// localhost:3001/weather?cName=seattle
+
+// class Forecast {
+//     constructor(item) {
+    
+//         this.date = item.datetime;
+//         this.description = item.weatherData.description;
+    
+//     }
+//     }
+
+
+// http://localhost:3001/weather?cName=seattle
 server.get('/weather',(request,response)=> {
   
 console.log(request.query);
 let gName = request.query.cName;
-
-let weatherInfo = weatherData.find(item => {
-
-
+let cites = weatherData.find(item => {
 if (item.city_name.toLowerCase() === gName.toLowerCase()){
 
 return item;
 
-}
+}})
+// try {
 
-})
-response.send(weatherInfo);
-})
+//     let ForecastArr = cites.data.map((item) => {
+    
+
+//     return new Forecast(item);
+// })
+// response.send(ForecastArr)
+// } catch{
+//     response.send("NOT FOUND:Error We can't find your data")
+// }
+response.send(cites)
+});
 
 
 server.get('*',(request,response)=>{
@@ -32,27 +53,8 @@ server.get('*',(request,response)=>{
 
 
 
-
-
-
-// if (item.city_name === 'Seattle' || item.city_name === 'Paris' || item.city_name === 'Amman'){
-
-//     return item;
-    
-//     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 server.listen (PORT,()=> {
 console.log(`listning on PORT ${PORT}`)
 })
+
+
