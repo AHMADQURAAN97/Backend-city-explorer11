@@ -37,7 +37,6 @@ request.send("Home Route")
 
 
 
-
 //  async function getWeatherHandler (request,response){
 // let searchQuery = request.query.searchQuery;
 // let url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.WEATHER_API_KEY}&city=${searchQuery}`
