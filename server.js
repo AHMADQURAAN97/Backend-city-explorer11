@@ -12,6 +12,7 @@ const axios = require("axios");
 
 // ROUTES
 
+// https://backendlab07.herokuapp.com/weather?searchQuery=Amman
 // http://localhost:3001/weather?searchQuery=Amman
 // http://localhost:3001/movie?searchQuery=Amman
 server.get('/weather',getWeatherHandler);
