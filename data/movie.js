@@ -15,7 +15,6 @@ async function getMoveHandler(request,response){
 }catch(error) {
         console.log('error from axios',error)
         response.send(error)
-    
     }
 }
 
