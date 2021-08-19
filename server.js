@@ -7,6 +7,7 @@ const server = express();
 const PORT=process.env.PORT; 
 server.use(cors());
 const axios = require("axios");
+const { request } = require('express');
 // const weatherData = require('./data/weather.json')
 
 
@@ -20,6 +21,12 @@ server.get('/movie',getMoveHandler);
 
 
 
+
+
+server.get('/',(request,response) => {
+request.send("Home Route")
+
+});
 
 
 
