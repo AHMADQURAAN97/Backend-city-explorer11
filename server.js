@@ -21,8 +21,6 @@ server.get('/movie',getMoveHandler);
 
 
 
-
-
 server.get('/',(request,response) => {
 request.send("Home Route")
 
